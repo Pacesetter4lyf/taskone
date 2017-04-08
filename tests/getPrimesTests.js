@@ -1,54 +1,36 @@
-(function(){
-  'use strict';
+'use strict'
 
-  describe("Get prime numbers from 0 to n: ", function() {
+//import the getprime Object from the path ../getPrime/getprime.js
+const getPrimes = require('../getPrimes/getprime.js');
 
-    describe("Case for input 0", function() {
 
-      it("should return [] for 0", function() {
-        expect(getPrimes(0)).toEqual([]);
-      });
+//Test Suite for getPrimes functions
 
+describe("Get Primes tests ", function() {
+  describe("Case for some falsy values", function() {
+
+    it("should return [2, 3, 5, 7, 9] for 10", function() {
+      expect(getPrimes(10)).toEqual([2, 3, 5, 7, 9]);
     });
 
-    describe("Case for a negative number", function() {
-
-      it("should return `No negative integer` for -8", function() {
-        expect(getPrimes(-8)).toEqual('No negative integer');
-      });
-
-      it("should return `No negative integer` for -13", function() {
-        expect(getPrimes(-13)).toEqual('No negative integer');
-      });
-
+    it("should return 'Negative number or zero not accepted' for -10", function() {
+      expect(getPrimes(-10)).toEqual('Negative number or zero not accepted');
     });
 
-    describe("Case for positive integers", function() {
-
-      it("should return [1,2,5] for 6", function() {
-        expect(getPrimes(6)).toEqual([1,2,5]);
-      });
-
-      it("should return [1,2,5,7,11] for 13", function() {
-        expect(getPrimes(13)).toEqual([1,2,5,7,11]);
-      });
-	  
-	  it("should return [1,2,5,7,11,13,17,19] for 21", function() {
-        expect(getPrimes(21)).toEqual([1,2,5,7,11,13,17,19]);
-      });
-
+    it("should return 'Negative number or zero not accepted' for 0", function() {
+      expect(getPrimes(0)).toEqual('Negative number or zero not accepted');
     });
 
-    describe("Case for non valid input", function() {
-
-      it("should return 'Not a Number' for 'J'", function() {
-        expect(getPrimes('J').toEqual("Not a Number");
-      });
-	  
-	  it("should return 'Not an integer' for 10.5", function() {
-        expect(getPrimes(10.5).toEqual("Not an integer");
-      });
-      
+    it("should return 'Wrong input' for 'string'", function() {
+      expect(getPrimes('string')).toEqual('Wrong input');
     });
-  });
-})();
+
+    it("should return '1 not prime' for 1", function() {
+      expect(getPrimes(1)).toEqual('1 not prime');
+    });
+
+    it("should return 'Wrong input' for Boolean input", function() {
+      expect(getPrimes(true)).toEqual('Wrong input');
+    });
+
+  });});
