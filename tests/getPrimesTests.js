@@ -1,7 +1,7 @@
 'use strict'
 
-//import the getprime Object from the path ../getPrime/getprime.js
-const getPrimes = require('../getPrimes/getprime.js');
+//import the getprime Object from the path ./getPrimes.js
+const getPrimes = require('./getPrimes.js');
 
 
 //Test Suite for getPrimes functions
